@@ -1,0 +1,41 @@
+---
+title: "Fateen Baruwa | Data in Practice"
+---
+
+
+```{r}
+#| include: false
+1+1
+```
+--------------
+Last Updated: `r format(Sys.time(), "%A %m %d, %Y at %H:%M%p")`
+
+![Fateen Baruwa](images/Professional Headshot in Navy Suit.png){width=250}
+
+## About Me
+
+Hi, I'm Fateen Baruwa. I am a graduate student at Baruch College pursuing a Master's in AI and Business Analytics with a concentration in Data Analytics. I earned my Bachelor's degree in Business Finance from the College of Staten Island.
+
+I'm interested in using data and technology to better understand business problems and support decision making. I'm currently developing my skills in R, Python, database management, and data analytics, and this website will serve as a place to showcase my work and projects as I continue building those skills.
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if(!require("leaflet")){
+    options(repos=c(CRAN="https://cloud.r-project.org"))
+    install.packages("leaflet")
+    stopifnot(require("leaflet"))
+}
+
+baruch_longitude <- -73.98333
+baruch_latitude  <- +40.74028
+
+leaflet() |>
+  addTiles() |>
+  setView(baruch_longitude, baruch_latitude, zoom=17) |>
+  addPopups(baruch_longitude, baruch_latitude, 
+            "I am a Master's student at <b>Baruch College</b>!")
+```
